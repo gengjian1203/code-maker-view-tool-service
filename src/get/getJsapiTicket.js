@@ -27,9 +27,11 @@ const getJsapiTicket = async (req, res) => {
       })
       .catch((err) => {
         // console.log("getJsapiTicket Error", err);
+        res.json({ body: err });
       });
   } catch (error) {
     console.log("getJsapiTicket Error", error);
+    res.json({ body: error });
   }
 };
 

@@ -20,9 +20,11 @@ const sendRobotMsg = async (req, res) => {
       })
       .catch((err) => {
         // console.log("sendRobotMsg Error", err);
+        res.json({ body: err });
       });
   } catch (error) {
     console.log("sendRobotMsg Error", error);
+    res.json({ body: error });
   }
 };
 

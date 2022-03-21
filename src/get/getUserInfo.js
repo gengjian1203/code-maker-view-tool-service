@@ -29,9 +29,11 @@ const getUserInfo = async (req, res) => {
       })
       .catch((err) => {
         // console.log("getUserInfo Error", err);
+        res.json({ body: err });
       });
   } catch (error) {
     console.log("getUserInfo Error", error);
+    res.json({ body: error });
   }
 };
 
