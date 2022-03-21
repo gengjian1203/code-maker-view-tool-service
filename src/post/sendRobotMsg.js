@@ -9,7 +9,7 @@ const axios = require("axios");
  */
 const sendRobotMsg = async (req, res) => {
   try {
-    const { webhook = "/", data = "" } = req.body || {};
+    const { webhook = "/", data = {} } = req.body || {};
     console.log("sendRobotMsg Params", req);
     axios
       .post(webhook, data)

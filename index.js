@@ -38,7 +38,7 @@ Object.keys(fetchGet).map((key) => {
 
 Object.keys(fetchPost).map((key) => {
   console.log("reg fetchPost", key, fetchPost[key]);
-  app.get(`/api/${key}`, fetchPost[key]);
+  app.post(`/api/${key}`, fetchPost[key]);
 });
 
 const bootstrap = async () => {
