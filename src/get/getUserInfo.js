@@ -28,7 +28,7 @@ const getUserInfo = async (req, res) => {
         res.json({ body: data });
       })
       .catch((err) => {
-        console.log("getUserInfo Error", err);
+        // console.log("getUserInfo Error", err);
       });
   } catch (error) {
     console.log("getUserInfo Error", error);

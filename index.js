@@ -33,12 +33,12 @@ console.log("reg fetchGet", fetchGet);
 
 Object.keys(fetchGet).map((key) => {
   console.log("reg fetchGet", key, fetchGet[key]);
-  app.get(`/${key}`, fetchGet[key]);
+  app.get(`/api/${key}`, fetchGet[key]);
 });
 
 Object.keys(fetchPost).map((key) => {
   console.log("reg fetchPost", key, fetchPost[key]);
-  app.get(`/${key}`, fetchPost[key]);
+  app.get(`/api/${key}`, fetchPost[key]);
 });
 
 const bootstrap = async () => {

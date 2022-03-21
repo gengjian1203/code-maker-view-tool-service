@@ -9,7 +9,7 @@ const axios = require("axios");
  */
 const sendRobotMsg = async (req, res) => {
   try {
-    const { webhook = "", data = "" } = req.query || {};
+    const { webhook = "/", data = "" } = req.body || {};
     console.log("sendRobotMsg Params", req);
     axios
       .post(webhook, data)
@@ -19,7 +19,7 @@ const sendRobotMsg = async (req, res) => {
         res.json({ body: data });
       })
       .catch((err) => {
-        console.log("sendRobotMsg Error", err);
+        // console.log("sendRobotMsg Error", err);
       });
   } catch (error) {
     console.log("sendRobotMsg Error", error);
