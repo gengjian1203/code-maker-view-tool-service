@@ -1,0 +1,23 @@
+{
+  "name": "code-maker-view-tool-service",
+  "version": "1.0.0",
+  "description": "供VSCode插件Code Makder使用的常用工具H5页面后端服务",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "serve": "node index.js"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
