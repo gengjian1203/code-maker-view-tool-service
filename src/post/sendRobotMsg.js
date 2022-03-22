@@ -10,7 +10,7 @@ const axios = require("axios");
 const sendRobotMsg = async (req, res) => {
   try {
     const { webhook = "/", data = {} } = req.body || {};
-    console.log("sendRobotMsg Params", req);
+    console.log("sendRobotMsg Params", req.body);
     axios
       .post(webhook, data)
       .then((resAxios) => {

@@ -15,7 +15,7 @@ const getJsapiTicket = async (req, res) => {
       corpsecret = "B-ieE-K8UNEf8Nc0vgx6Qmuu7MiWDKmvz7qqjzrAfuY",
     } = req.query || {};
     const access_token = await getToken(corpid, corpsecret);
-    console.log("getJsapiTicket Params", access_token, req);
+    console.log("getJsapiTicket Params", access_token, req.query);
     axios
       .get(
         `https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=${access_token}`

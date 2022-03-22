@@ -17,7 +17,7 @@ const getUserInfo = async (req, res) => {
       code = "",
     } = req.query || {};
     const access_token = await getToken(corpid, corpsecret);
-    console.log("getUserInfo Params", access_token, req);
+    console.log("getUserInfo Params", access_token, req.query);
     axios
       .get(
         `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${access_token}&code=${code}`
