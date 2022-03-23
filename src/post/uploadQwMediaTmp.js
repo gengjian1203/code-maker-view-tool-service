@@ -1,6 +1,7 @@
 const axios = require("axios");
 const formidable = require("formidable");
 const FormData = require("form-data");
+var fs = require("fs");
 const { getToken } = require("../../kits/index");
 
 /** 上传临时素材
@@ -24,41 +25,10 @@ const { getToken } = require("../../kits/index");
  */
 const uploadQwMediaTmp = async (req, res) => {
   try {
-    // const {
-    //   corpid = "ww12eda987cc5346cd",
-    //   corpsecret = "B-ieE-K8UNEf8Nc0vgx6Qmuu7MiWDKmvz7qqjzrAfuY",
-    //   accessToken = "",
-    //   type = "file",
-    // } = req.body || {};
-
-    // // const fileMedia = req.files;
-
-    // const access_token = accessToken
-    //   ? accessToken
-    //   : await getToken(corpid, corpsecret);
-
-    // console.log("uploadQwMediaTmp Params", access_token, req.body);
-
-    // const formData = new FormData();
-    // formData.append("media", fileMedia);
-
-    // axios
-    //   .post(
-    //     `https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=${access_token}&type=${type}`,
-    //     fileMedia,
-    //     { headers: { "Content-Type": "multipart/form-data" } }
-    //   )
-    //   .then((resAxios) => {
-    //     const { data } = resAxios;
-    //     console.log("uploadQwMediaTmp res", data);
-    //     res.json({ body: data });
-    //   });
-
     const form = new formidable.IncomingForm();
     form.parse(req, async (err, fields, files) => {
-      console.log("fields", fields); //表单传递的input数据
-      console.log("files", files); //上传文件数据
-      //do somthing......
+      console.log("fields", fields); // 表单传递的正常数据
+      console.log("files", files); // 上传文件数据
 
       const {
         corpid = "ww12eda987cc5346cd",
@@ -73,30 +43,24 @@ const uploadQwMediaTmp = async (req, res) => {
         ? accessToken
         : await getToken(corpid, corpsecret);
 
-      console.log("test", media);
+      const formData = new FormData();
+      formData.append("media", fs.createReadStream(media.filepath));
 
-      const form = new FormData();
-      form.append("media", media);
-      form.append("aaaa", "111");
-      form.append("bbbb", "111");
-      form.append("cccc", "111");
-
-      console.log("test", form.getBuffer());
+      // console.log("formData", media, formData);
 
       axios
         .post(
           `https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=${access_token}&type=${type}`,
-          form,
+          formData,
           { headers: { "Content-Type": "multipart/form-data" } }
         )
         .then((resAxios) => {
           const { data } = resAxios;
-          console.log("uploadQwMediaTmp res", resAxios.config.data);
-          console.log("uploadQwMediaTmp res", data);
-          res.json({
-            body: media,
-            // data
-          });
+          console.log("uploadQwMediaTmp res", data, media.filepath);
+          // 删除临时文件
+          fs.unlinkSync(`${media.filepath}`);
+
+          res.json({ body: data });
         });
     });
   } catch (error) {
