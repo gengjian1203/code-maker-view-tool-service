@@ -1,9 +1,9 @@
 const sendRobotMsg = require("./sendRobotMsg");
-const uploadQwMediaImg = require("./uploadQwMediaImg");
 const uploadQwMediaTmp = require("./uploadQwMediaTmp");
+const uploadQwRobotMedia = require("./uploadQwRobotMedia");
 
 module.exports = {
   sendRobotMsg,
-  uploadQwMediaImg,
   uploadQwMediaTmp,
+  uploadQwRobotMedia,
 };
