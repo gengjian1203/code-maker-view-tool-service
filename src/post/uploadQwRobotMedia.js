@@ -9,7 +9,7 @@ var fs = require("fs");
  * @param {
  *  key: String 企业微信ID
  *  type: String 媒体文件类型 分别有图片(image)、语音(voice)、视频(video)、普通文件(file)
- *  fileMedia: File 媒体文件，内应包含有 filename、filelength、content-type等信息
+ *  media: File 媒体文件，内应包含有 filename、filelength、content-type等信息
  * }
  * 内容类型为multipart/form-data
  */

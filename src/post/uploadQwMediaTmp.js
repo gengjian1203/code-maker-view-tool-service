@@ -18,7 +18,7 @@ const { getToken } = require("../../kits/index");
  *  corpsecret: String 企业应用秘钥
  *  accessToken: String 登录凭证
  *  type: String 媒体文件类型 分别有图片(image)、语音(voice)、视频(video)、普通文件(file)
- *  fileMedia: File 媒体文件，内应包含有 filename、filelength、content-type等信息
+ *  media: File 媒体文件，内应包含有 filename、filelength、content-type等信息
  * }
  * corpid/corpsecret 与 accessToken 二选一传入, 全部传参则取accessToken
  * 内容类型为multipart/form-data
