@@ -3,7 +3,7 @@ const axios = require("axios");
 // 获取token的函数，内部试用是统一的
 let token_global = {};
 
-/** 获取access_token
+/** 获取企业微信的access_token
  * https://developer.work.weixin.qq.com/document/path/91039
  * @param {
  *  corpid: String 企业微信ID
@@ -21,7 +21,9 @@ const getToken = (corpid, corpsecret) => {
       // 已过期重新获取
       axios
         .get(
-          `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${corpid}&corpsecret=${corpsecret}`
+          `https://qyapi.weixin.qq.com/cgi-bin/gettoken` +
+            `?corpid=${corpid}` +
+            `&corpsecret=${corpsecret}`
         )
         .then((res) => {
           console.log("getToken3", res.data);
