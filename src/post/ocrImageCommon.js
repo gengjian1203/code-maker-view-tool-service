@@ -12,7 +12,7 @@ const { getTokenMini } = require("../../kits/index");
  *  appid: String 小程序ID
  *  secret: String 小程序秘钥
  *  accessToken: String 登录凭证
- *  image: File 图片文件
+ *  img: File 图片文件
  * }
  * 内容类型为multipart/form-data
  */
@@ -31,12 +31,12 @@ const ocrImageCommon = async (req, res) => {
         secret = "e5956733eb6411a8998e002c1bbd5054",
         accessToken = "",
       } = fields || {};
-      const { image = {} } = files || {};
+      const { img = {} } = files || {};
       const {
         filepath = "",
         newFilename = "",
         originalFilename = "",
-      } = image || {};
+      } = img || {};
 
       const newPath = filepath.replace(newFilename, originalFilename);
       fs.rename(filepath, newPath, (err) => {});
@@ -48,7 +48,7 @@ const ocrImageCommon = async (req, res) => {
         ? accessToken
         : await getTokenMini(appid, secret);
 
-      // console.log("formData", newPath, image, formData);
+      // console.log("formData", newPath, formData);
 
       axios
         .post(
@@ -67,6 +67,7 @@ const ocrImageCommon = async (req, res) => {
         })
         .catch((err) => {
           console.log("ocrImageCommon err", err);
+          res.json({ body: err });
         });
     });
   } catch (error) {
