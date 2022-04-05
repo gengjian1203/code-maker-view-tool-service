@@ -1,6 +1,6 @@
 const { getTokenMini } = require("../../kits/index");
 
-/** 获取小程序access_token
+/** 获取小程序的access_token
  * https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/access-token/auth.getAccessToken.html
  * @param {
  *  appid: String 小程序ID
