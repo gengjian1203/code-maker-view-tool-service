@@ -3,6 +3,7 @@ const getAccessTokenAccounts = require("./getAccessTokenAccounts");
 const getAccessTokenMini = require("./getAccessTokenMini");
 const getJsapiAgentTicket = require("./getJsapiAgentTicket");
 const getJsapiTicket = require("./getJsapiTicket");
+const getJsapiTicketAccounts = require("./getJsapiTicketAccounts");
 const getUserInfo = require("./getUserInfo");
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
   getAccessTokenMini,
   getJsapiAgentTicket,
   getJsapiTicket,
+  getJsapiTicketAccounts,
   getUserInfo,
 };
