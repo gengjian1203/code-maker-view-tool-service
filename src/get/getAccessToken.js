@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { getToken } = require("../../kits/index");
 
-/** 获取access_token
+/** 获取企业微信的access_token
  * https://developer.work.weixin.qq.com/document/path/91039
  * @param {
  *  corpid: String 企业微信ID
