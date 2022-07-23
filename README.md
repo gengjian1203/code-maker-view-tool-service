@@ -1,6 +1,6 @@
 # code-maker-view-tool-service
 
-基于微信云托管 Node.js Express 框架企微侧边栏自建服务
+基于微信云托管 Node.js Express 框架企微侧边栏自建服务。
 
 ## 快速开始
 
@@ -39,7 +39,7 @@ const upload = multer(); // for parsing multipart/form-data
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.post("/profile", upload.array(), function (req, res, next) {
+app.post("/profile", upload.array(), function(req, res, next) {
   console.log(req.body);
   res.json(req.body);
 });
