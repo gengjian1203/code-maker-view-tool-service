@@ -1,6 +1,6 @@
 # code-maker-view-tool-service
 
-基于微信云托管 Node.js Express 框架企微侧边栏自建服务
+基于微信云托管 Node.js Express 框架自建服务
 
 ## 快速开始
 
